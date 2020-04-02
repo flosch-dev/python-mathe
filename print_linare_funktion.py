@@ -1,16 +1,20 @@
 #!/usr/bin/python3
-
+import sys
 import matplotlib.pyplot as plt
 
-PUNKTE={
-    "X": [1, 5],
-    "Y": [9, 3]
-}
-#PUNKTE={
-#    "X": [-1, 3],
-#    "Y": [5, -7]
-#}
+try:
+  sys.argv[1:]
+except:
+  print("missing arguments: \"1x|1y 2x|2y\"")
 
+PUNKTE={}
+PUNKTE["X"]=[]
+PUNKTE["Y"]=[]
+
+for werte in sys.argv[1:][0].split(" "):
+  WERT=werte.split("|")
+  PUNKTE["X"].append(int(WERT[0]))
+  PUNKTE["Y"].append(int(WERT[1]))
 
 def steigung(PUNKTE):
   M=abs(PUNKTE["Y"][0] - PUNKTE["Y"][1]) / abs(PUNKTE["X"][0] - PUNKTE["X"][1])
@@ -21,16 +25,6 @@ def steigung(PUNKTE):
     return ["gleichbleibender Graph",0]
   else:
     return ["fallender Graph",M*-1]
-
-
-fig, axs = plt.subplots()
-axs.plot(PUNKTE["X"], PUNKTE["Y"])
-axs.hlines(0,-10, 10)
-axs.vlines(0,-10, 10)
-plt.grid(True)
-# The axis() command in the example above takes a list of [xmin, xmax, ymin, ymax] and specifies the viewport of the axes.
-axs.axis([-10, 10, -10, 10])
-
 
 M=steigung(PUNKTE)
 
@@ -44,6 +38,14 @@ print("")
 print("lineare Funktion:")
 print ("f(x) = " + str(M[1]) + "x + " + str(B))
 print("")
+
+fig, axs = plt.subplots()
+axs.plot(PUNKTE["X"], PUNKTE["Y"])
+axs.hlines(0,-10, 10)
+axs.vlines(0,-10, 10)
+plt.grid(True)
+# The axis() command in the example above takes a list of [xmin, xmax, ymin, ymax] and specifies the viewport of the axes.
+axs.axis([-10, 10, -10, 10])
 
 fig.suptitle("f(x) = " + str(M[1]) + "x + " + str(B))
 plt.show()
