@@ -40,12 +40,17 @@ print ("f(x) = " + str(M[1]) + "x + " + str(B))
 print("")
 
 fig, axs = plt.subplots()
-axs.plot(PUNKTE["X"], PUNKTE["Y"])
-axs.hlines(0,-10, 10)
-axs.vlines(0,-10, 10)
-plt.grid(True)
-# The axis() command in the example above takes a list of [xmin, xmax, ymin, ymax] and specifies the viewport of the axes.
-axs.axis([-10, 10, -10, 10])
+axs.plot(PUNKTE["X"], PUNKTE["Y"], 'o-', label="f(x) = " + str(M[1]) + "x + " + str(B))
+axs.axis([-20, 20, -20, 20])
 
-fig.suptitle("f(x) = " + str(M[1]) + "x + " + str(B))
+axs.hlines(0,-20, 20)
+axs.vlines(0,-20, 20)
+axs.grid(True)
+
+axs.legend()
+# The axis() command in the example above takes a list of [xmin, xmax, ymin, ymax] and specifies the viewport of the axes.
+
+plt.xlabel("x") # Text for X-Axis
+plt.ylabel("y") # Text for Y-Axis
+plt.suptitle("Lineare Funktion")
 plt.show()
