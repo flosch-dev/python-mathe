@@ -3,15 +3,13 @@
 import matplotlib.pyplot as plt
 
 PUNKTE={
-    "X": [-1, 2],
-    "Y": [-9, 3]
+    "X": [1, 5],
+    "Y": [9, 3]
 }
 #PUNKTE={
 #    "X": [-1, 3],
 #    "Y": [5, -7]
 #}
-
-
 
 
 def steigung(PUNKTE):
@@ -24,8 +22,6 @@ def steigung(PUNKTE):
   else:
     return ["fallender Graph",M*-1]
 
-names = list(PUNKTE.keys())
-values = list(PUNKTE.values())
 
 fig, axs = plt.subplots()
 axs.plot(PUNKTE["X"], PUNKTE["Y"])
