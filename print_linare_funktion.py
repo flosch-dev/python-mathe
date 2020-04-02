@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import matplotlib.pyplot as plt
+
 PUNKTE={
     "X": [-1, 2],
     "Y": [-9, 3]
@@ -8,6 +10,8 @@ PUNKTE={
 #    "X": [-1, 3],
 #    "Y": [5, -7]
 #}
+
+
 
 
 def steigung(PUNKTE):
@@ -19,6 +23,17 @@ def steigung(PUNKTE):
     return ["gleichbleibender Graph",0]
   else:
     return ["fallender Graph",M*-1]
+
+names = list(PUNKTE.keys())
+values = list(PUNKTE.values())
+
+fig, axs = plt.subplots()
+axs.plot(PUNKTE["X"], PUNKTE["Y"])
+axs.hlines(0,-10, 10)
+axs.vlines(0,-10, 10)
+# The axis() command in the example above takes a list of [xmin, xmax, ymin, ymax] and specifies the viewport of the axes.
+axs.axis([-10, 10, -10, 10])
+
 
 M=steigung(PUNKTE)
 
@@ -32,3 +47,6 @@ print("")
 print("lineare Funktion:")
 print ("f(x) = " + str(M[1]) + "x + " + str(B))
 print("")
+
+fig.suptitle("f(x) = " + str(M[1]) + "x + " + str(B))
+plt.show()
