@@ -11,7 +11,7 @@ PUNKTE={}
 PUNKTE["X"]=[]
 PUNKTE["Y"]=[]
 
-for werte in sys.argv[1:][0].split(" "):
+for werte in sys.argv[1:][0].split():
   WERT=werte.split("|")
   PUNKTE["X"].append(int(WERT[0]))
   PUNKTE["Y"].append(int(WERT[1]))
