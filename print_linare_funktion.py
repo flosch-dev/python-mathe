@@ -7,14 +7,17 @@ try:
 except:
   print("missing arguments: \"1x|1y 2x|2y\"")
 
+
 PUNKTE={}
 PUNKTE["X"]=[]
 PUNKTE["Y"]=[]
 
+
 for werte in sys.argv[1:][0].split():
   WERT=werte.split("|")
-  PUNKTE["X"].append(int(WERT[0]))
-  PUNKTE["Y"].append(int(WERT[1]))
+  PUNKTE["X"].append(float(WERT[0]))
+  PUNKTE["Y"].append(float(WERT[1]))
+
 
 def steigung(PUNKTE):
   M=abs(PUNKTE["Y"][0] - PUNKTE["Y"][1]) / abs(PUNKTE["X"][0] - PUNKTE["X"][1])
@@ -26,6 +29,13 @@ def steigung(PUNKTE):
   else:
     return ["fallender Graph",M*-1]
 
+
+def isInt(WERT):
+  if str(WERT).endswith(".0"):
+    return int(WERT)
+  else:
+    return float(WERT)
+
 M=steigung(PUNKTE)
 
 print("")
@@ -36,11 +46,11 @@ B=PUNKTE["Y"][0] + (0-PUNKTE["X"][0])*M[1]
 
 print("")
 print("lineare Funktion:")
-print ("f(x) = " + str(M[1]) + "x + " + str(B))
+print("f(x) = " + str(isInt(M[1])) + "x + " + str(isInt(B)))
 print("")
 
 fig, axs = plt.subplots()
-axs.plot(PUNKTE["X"], PUNKTE["Y"], 'o-', label="f(x) = " + str(M[1]) + "x + " + str(B))
+axs.plot(PUNKTE["X"], PUNKTE["Y"], 'o-', label="f(x) = " + str(isInt(M[1])) + "x + " + str(isInt(B)))
 axs.axis([-20, 20, -20, 20])
 
 axs.hlines(0,-20, 20)
