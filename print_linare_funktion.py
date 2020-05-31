@@ -22,7 +22,7 @@ for werte in sys.argv[1:][0].split():
 
 def steigung(punkte):
     """ steigung ermitteln """
-    M = abs(punkte["Y"][0] - punkte["Y"][1]) / abs(punkte["X"][0] - punkte["X"][1])
+    m = abs(punkte["Y"][0] - punkte["Y"][1]) / abs(punkte["X"][0] - punkte["X"][1])
 
     if (punkte["X"][0] < punkte["X"][1] and punkte["Y"][0] < punkte["Y"][1]) or (punkte["X"][0] > punkte["X"][1] and punkte["Y"][0] > punkte["Y"][1]):
         return ["steigenger Graph", M]
@@ -31,7 +31,7 @@ def steigung(punkte):
     else:
         return ["fallender Graph", M*-1]
 
-def isInt(wert):
+def isint(wert):
     """ prüft ob wert float oder int ist """
     if str(wert).endswith(".0"):
         return int(wert)
@@ -48,11 +48,11 @@ B = PUNKTE["Y"][0] + (0-PUNKTE["X"][0])*M[1]
 
 print("")
 print("lineare Funktion:")
-print("f(x) = " + str(isInt(M[1])) + "x + " + str(isInt(B)))
+print("f(x) = " + str(isint(M[1])) + "x + " + str(isint(B)))
 print("")
 
 fig, axs = plt.subplots()
-axs.plot(PUNKTE["X"],PUNKTE["Y"], 'o-', label="f(x) = " + str(isInt(M[1])) + "x + " + str(isInt(B)))
+axs.plot(PUNKTE["X"], PUNKTE["Y"], 'o-', label="f(x) = " + str(isint(M[1])) + "x + " + str(isint(B)))
 axs.axis([-20, 20, -20, 20])
 
 axs.hlines(0, -20, 20)
@@ -60,7 +60,8 @@ axs.vlines(0, -20, 20)
 axs.grid(True)
 
 axs.legend()
-# The axis() command in the example above takes a list of [xmin, xmax, ymin, ymax] and specifies the viewport of the axes.
+# The axis() command in the example above takes a list of [xmin, xmax, ymin, ymax] and specifies
+# the viewport of the axes.
 
 plt.xlabel("x") # Text for X-Axis
 plt.ylabel("y") # Text for Y-Axis
