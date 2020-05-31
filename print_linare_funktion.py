@@ -9,13 +9,13 @@ except:
     print("missing arguments: \"1x|1y 2x|2y\"")
 
 
-PUNKTE      = {}
+PUNKTE = {}
 PUNKTE["X"] = []
 PUNKTE["Y"] = []
 
 
 for werte in sys.argv[1:][0].split():
-    WERT=werte.split("|")
+    WERT = werte.split("|")
     PUNKTE["X"].append(float(WERT[0]))
     PUNKTE["Y"].append(float(WERT[1]))
 
