@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" print linare function """
 import sys
 import matplotlib.pyplot as plt
 
@@ -8,9 +9,9 @@ except:
   print("missing arguments: \"1x|1y 2x|2y\"")
 
 
-PUNKTE={}
-PUNKTE["X"]=[]
-PUNKTE["Y"]=[]
+PUNKTE      = {}
+PUNKTE["X"] = []
+PUNKTE["Y"] = []
 
 
 for werte in sys.argv[1:][0].split():
