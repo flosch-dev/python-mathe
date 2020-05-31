@@ -51,11 +51,11 @@ print("f(x) = " + str(isInt(M[1])) + "x + " + str(isInt(B)))
 print("")
 
 fig, axs = plt.subplots()
-axs.plot(PUNKTE["X"], PUNKTE["Y"], 'o-', label="f(x) = " + str(isInt(M[1])) + "x + " + str(isInt(B)))
+axs.plot(PUNKTE["X"],PUNKTE["Y"], 'o-', label="f(x) = " + str(isInt(M[1])) + "x + " + str(isInt(B)))
 axs.axis([-20, 20, -20, 20])
 
-axs.hlines(0,-20, 20)
-axs.vlines(0,-20, 20)
+axs.hlines(0, -20, 20)
+axs.vlines(0, -20, 20)
 axs.grid(True)
 
 axs.legend()
