@@ -37,13 +37,13 @@ def isInt(WERT):
   else:
     return float(WERT)
 
-M=steigung(PUNKTE)
+M = steigung(PUNKTE)
 
 print("")
 print("Graph:")
 print(M[0])
 
-B=PUNKTE["Y"][0] + (0-PUNKTE["X"][0])*M[1]
+B = PUNKTE["Y"][0] + (0-PUNKTE["X"][0])*M[1]
 
 print("")
 print("lineare Funktion:")
