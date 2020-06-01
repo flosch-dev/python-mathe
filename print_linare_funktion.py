@@ -22,14 +22,14 @@ for werte in sys.argv[1:][0].split():
 
 def steigung(punkte):
     """ steigung ermitteln """
-    m = abs(punkte["Y"][0] - punkte["Y"][1]) / abs(punkte["X"][0] - punkte["X"][1])
+    funcm = abs(punkte["Y"][0] - punkte["Y"][1]) / abs(punkte["X"][0] - punkte["X"][1])
 
     if (punkte["X"][0] < punkte["X"][1] and punkte["Y"][0] < punkte["Y"][1]) or (punkte["X"][0] > punkte["X"][1] and punkte["Y"][0] > punkte["Y"][1]):
         return ["steigenger Graph", M]
     elif punkte["X"][0] == punkte["X"][1] and punkte["Y"] != punkte["Y"]:
         return ["gleichbleibender Graph", 0]
     else:
-        return ["fallender Graph", m*-1]
+        return ["fallender Graph", funcm*-1]
 
 def isint(wert):
     """ prüft ob wert float oder int ist """
