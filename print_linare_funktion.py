@@ -29,7 +29,7 @@ def steigung(punkte):
     elif punkte["X"][0] == punkte["X"][1] and punkte["Y"] != punkte["Y"]:
         return ["gleichbleibender Graph", 0]
     else:
-        return ["fallender Graph", M*-1]
+        return ["fallender Graph", m*-1]
 
 def isint(wert):
     """ prüft ob wert float oder int ist """
